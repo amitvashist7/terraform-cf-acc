@@ -1,0 +1,43 @@
+    1  ls
+    2  cd /
+    3  ls
+    4  mkdir terraform
+    5  ls
+    6  cd terraform/
+    7  ls
+    8  echo "# terraform-cf-acc" >> README.md
+    9  git init 
+   10  git add . 
+   11  git commit -m "Initial Commit"
+   12  git remote add origin https://github.com/amitvashist7/terraform-cf-acc.git
+   13  git push origin master
+   14  ls
+   15  mkdir 00-Setup
+   16  cd 00-Setup/
+   17  vim Vagrantfile
+   18  ls
+   19  cd ..
+   20  ls
+   21  git add . 
+   22  git commit -m "00-Setup"
+   23  git push origin master
+   24  exit
+   25  ls
+   26  apt-get update; apt-get install jq unzip -y 
+   27  git clone https://github.com/amitvashist7/terraform-cf-acc.git
+   28  ls
+   29  cd terraform-cf-acc/
+   30  ls
+   31  cd 01-Setup-Terrafrom/
+   32  ls
+   33  cat terrafrom.sh 
+   34  sh terrafrom.sh 
+   35  ./terrafrom.sh 
+   36  history 
+   37  source ~/.bashrc 
+   38  terraform version
+   39  ls
+   40  cd ..
+   41  ls
+   42  history 
+   43  history > Day1_History.txt
