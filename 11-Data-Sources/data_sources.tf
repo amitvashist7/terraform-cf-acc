@@ -33,7 +33,7 @@ resource "aws_instance" "frontend" {
 
   depends_on        = ["aws_instance.backend"]
   availability_zone = "${data.aws_availability_zones.us-east-1.names[count.index]}"
-  ami               = "ami-66506c1c"
+  ami               = "ami-0de53d8956e8dcf80"
   instance_type     = "t2.micro"
 }
 
@@ -45,7 +45,7 @@ resource "aws_instance" "west_frontend" {
   count             = "${var.multi-region-deployment ? 1 : 0}"
   depends_on        = ["aws_instance.west_backend"]
   provider          = "aws.us-west-1"
-  ami               = "ami-07585467"
+  ami               = "ami-0019ef04ac50be30f"
   availability_zone = "${data.aws_availability_zones.us-west-1.names[count.index]}"
   instance_type     = "t2.micro"
 }
@@ -57,7 +57,7 @@ resource "aws_instance" "backend" {
 
   count             = 2
   availability_zone = "${data.aws_availability_zones.us-east-1.names[count.index]}"
-  ami               = "ami-66506c1c"
+  ami               = "ami-0de53d8956e8dcf80"
   instance_type     = "t2.micro"
 }
 
@@ -67,7 +67,7 @@ resource "aws_instance" "west_backend" {
   }
 
   provider          = "aws.us-west-1"
-  ami               = "ami-07585467"
+  ami               = "ami-0019ef04ac50be30f"
   count             = "${var.multi-region-deployment ? 2 : 0}"
   availability_zone = "${data.aws_availability_zones.us-west-1.names[count.index]}"
   instance_type     = "t2.micro"
